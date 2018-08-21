@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "345039382861",
+    "firebase_url": "https://locationtraking-b1c30.firebaseio.com",
+    "project_id": "locationtraking-b1c30",
+    "storage_bucket": "locationtraking-b1c30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345039382861:android:73b3b3985ce6f601",
+        "android_client_info": {
+          "package_name": "com.example.android.displaylocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345039382861-v6os62gvukbsm31dl6oda2h2df3pk2ng.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.displaylocation",
+            "certificate_hash": "ba5afb575bcef9565e566476f592c718fb131637"
+          }
+        },
+        {
+          "client_id": "345039382861-ua6vb8jakarelagb9ked4fk380vc1c5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH-LBxMYF6gr4I1jKhfD-VGGLMhHCVu0Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345039382861-ua6vb8jakarelagb9ked4fk380vc1c5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345039382861:android:d044e5f7d176208c",
+        "android_client_info": {
+          "package_name": "com.example.android.locationtraking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345039382861-9tahjronsrru3hrqgibu3csk9u9vp53q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.locationtraking",
+            "certificate_hash": "ba5afb575bcef9565e566476f592c718fb131637"
+          }
+        },
+        {
+          "client_id": "345039382861-ua6vb8jakarelagb9ked4fk380vc1c5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH-LBxMYF6gr4I1jKhfD-VGGLMhHCVu0Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345039382861-ua6vb8jakarelagb9ked4fk380vc1c5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

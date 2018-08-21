@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/imgLocation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:background="#E0E0E0"
+        android:src="@drawable/location" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewTO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLocation"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="To location"
+        android:singleLine="true"
+        android:text="" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/autoCompleteTextViewTO"
+        android:ems="10"
+        android:hint="From location"
+        android:singleLine="true"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/autoCompleteTextViewFrom"
+        android:layout_centerInParent="true"
+        android:text="search" />
+
+</RelativeLayout>
