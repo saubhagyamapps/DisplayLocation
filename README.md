@@ -5,6 +5,7 @@
 # create new style google map
 # https://mapstyle.withgoogle.com/
 
+new map 
  try {
 
             boolean success = googleMap.setMapStyle(
