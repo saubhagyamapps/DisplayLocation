@@ -6,8 +6,10 @@
 # https://mapstyle.withgoogle.com/
 
 new map 
+{
+try {
 
- try {      boolean success = googleMap.setMapStyle(
+            boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.style_json));
 
@@ -17,7 +19,6 @@ new map
         } catch (Resources.NotFoundException e) {
             Log.e(TAG, "Can't find style. Error: ", e);
         }
-        
 [style_json.txt](https://github.com/saubhagyamapps/DisplayLocation/files/2313690/style_json.txt)
 
 [uber_map.txt](https://github.com/saubhagyamapps/DisplayLocation/files/2313761/uber_map.txt)
