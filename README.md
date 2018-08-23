@@ -6,11 +6,11 @@
 # https://mapstyle.withgoogle.com/
 
 new map 
-{
+#
 
-try {
+      try {
 
-            boolean success = googleMap.setMapStyle(
+                    boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.style_json));
 
