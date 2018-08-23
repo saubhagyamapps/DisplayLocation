@@ -5,4 +5,5 @@
 #
 [style_json.txt](https://github.com/saubhagyamapps/DisplayLocation/files/2313690/style_json.txt)
 
-![newmap](https://user-images.githubusercontent.com/42333878/44515745-f9490f00-a6e0-11e8-98cf-056707022efc.png)
+![ezgif com-resize](https://user-images.githubusercontent.com/42333878/44516190-0e726d80-a6e2-11e8-913e-12ebfa4c66ad.png)
+
