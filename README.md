@@ -6,9 +6,8 @@
 # https://mapstyle.withgoogle.com/
 
 new map 
- try {
 
-            boolean success = googleMap.setMapStyle(
+ try {      boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.style_json));
 
