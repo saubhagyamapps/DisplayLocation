@@ -7,6 +7,7 @@
 
 new map 
 {
+
 try {
 
             boolean success = googleMap.setMapStyle(
