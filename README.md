@@ -6,6 +6,8 @@
 # https://mapstyle.withgoogle.com/
 [style_json.txt](https://github.com/saubhagyamapps/DisplayLocation/files/2313690/style_json.txt)
 
+[uber_map.txt](https://github.com/saubhagyamapps/DisplayLocation/files/2313761/uber_map.txt)
+
 ![ezgif com-resize](https://user-images.githubusercontent.com/42333878/44516190-0e726d80-a6e2-11e8-913e-12ebfa4c66ad.png)
 ![ezgif com-resize 1](https://user-images.githubusercontent.com/42333878/44516638-3adab980-a6e3-11e8-95c0-b86cbccddccd.png)
 
