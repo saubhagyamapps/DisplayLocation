@@ -1,6 +1,7 @@
 package com.example.android.displaylocation;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -39,9 +41,10 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, RoutingListener {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
-    private static final int[] COLORS = new int[]{R.color.colorPrimaryDark, R.color.yallow, R.color.colorAccent, R.color.accent, R.color.primary_dark_material_light};
+    private static final int[] COLORS = new int[]{R.color.black};
     protected LatLng start;
     protected LatLng end;
+    String mSlectedMapView;
     private HashMap<String, Marker> mMarkers = new HashMap<>();
     private GoogleMap mMap;
     private List<Polyline> polylines;
@@ -60,6 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mStartlongitude = b.getDouble("startlong");
             mEndlatitude = b.getDouble("endlat");
             mEndlongitude = b.getDouble("endlong");
+            mSlectedMapView = b.getString("json");
             Log.e(TAG, "onCreate: " + mEndlatitude + "," + mEndlongitude);
         }
         polylines = new ArrayList<>();
@@ -72,6 +76,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMaxZoomPreference(16);
+
+
+        if (mSlectedMapView.equals("silver")) {
+            mapView(R.raw.silver_json, googleMap);
+        } else if (mSlectedMapView.equals("aubergine")) {
+            mapView(R.raw.aubergine_json, googleMap);
+        } else if (mSlectedMapView.equals("dark")) {
+            mapView(R.raw.dark_json, googleMap);
+        } else if (mSlectedMapView.equals("retro")) {
+            mapView(R.raw.retro_json, googleMap);
+        } else if (mSlectedMapView.equals("night")) {
+            mapView(R.raw.night_json, googleMap);
+        } else {
+            mapView(R.raw.style_json, googleMap);
+        }
+
+        googleMap.getUiSettings().setScrollGesturesEnabled(true);
         start = new LatLng(mStartlatitude, mStartlongitude);
         end = new LatLng(mEndlatitude, mEndlongitude);
 
@@ -79,10 +100,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .travelMode(Routing.TravelMode.DRIVING)
                 .withListener(this)
                 .waypoints(start, end)
-                .alternativeRoutes(true)
+                /*    .alternativeRoutes(true)*/
                 .build();
         routing.execute();
         loginToFirebase();
+    }
+
+    private void mapView(int style_json, GoogleMap googleMap) {
+        try {
+            boolean success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, style_json));
+
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e(TAG, "Can't find style. Error: ", e);
+        }
     }
 
     private void loginToFirebase() {
@@ -179,7 +214,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             int colorIndex = i % COLORS.length;
             PolylineOptions polyOptions = new PolylineOptions();
             polyOptions.color(getResources().getColor(COLORS[colorIndex]));
-            polyOptions.width(10 + i * 3);
+            polyOptions.width(10 + i * 5);
             polyOptions.addAll(route.get(i).getPoints());
             Polyline polyline = mMap.addPolyline(polyOptions);
             polylines.add(polyline);

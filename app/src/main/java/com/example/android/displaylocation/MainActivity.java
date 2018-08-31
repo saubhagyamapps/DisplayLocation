@@ -16,7 +16,8 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final LatLngBounds BOUNDS_MOUNTAIN_VIEW = new LatLngBounds(new LatLng(23.63936, 68.14712), new LatLng(28.20453, 97.34466));
     int FLAG = 1;
     ImageView imageViewLocation;
+    RadioGroup radioGroup;
+    RadioButton rdSilver, rbDark, rbAubergine, rbNight, rbRetro;
     private Button btnSearch;
     private GoogleMap mMap;
     private GoogleApiClient mGoogleApiClient;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private AutoCompleteTextView mAutocompleteTextViewTo, mAutocompleteTextViewFrom;
     private double mStartlatitude, mStartlongitude;
     private double mEndlatitude, mEndlongitude;
+    private String mSelectMapView;
     private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallbackfrom
             = new ResultCallback<PlaceBuffer>() {
         @Override
@@ -170,6 +174,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mAutocompleteTextViewTo = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextViewTO);
         mAutocompleteTextViewFrom = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextViewFrom);
         btnSearch = (Button) findViewById(R.id.btnSearch);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        rdSilver = (RadioButton) findViewById(R.id.rbSilver);
+        rbDark = (RadioButton) findViewById(R.id.rbDark);
+        rbAubergine = (RadioButton) findViewById(R.id.rbAubergine);
+        rbNight = (RadioButton) findViewById(R.id.rbNight);
+        rbRetro = (RadioButton) findViewById(R.id.rbRetro);
         imageViewLocation = (ImageView) findViewById(R.id.imgLocation);
         mAutocompleteTextViewTo.setThreshold(0);
         mAutocompleteTextViewTo.setOnItemClickListener(mAutocompleteClickListenerTo);
@@ -181,6 +191,33 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mPlaceArrayAdapterFrom = new PlaceArrayAdapterFrom(this, android.R.layout.simple_list_item_1, BOUNDS_MOUNTAIN_VIEW, null);
         mAutocompleteTextViewFrom.setAdapter(mPlaceArrayAdapterFrom);
         searchBtnClick();
+        radioGroupClick();
+    }
+
+    private void radioGroupClick() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup1, int i) {
+                int id = radioGroup.getCheckedRadioButtonId();
+                switch (id) {
+                    case R.id.rbSilver:
+                        mSelectMapView = "silver";
+                        break;
+                    case R.id.rbAubergine:
+                        mSelectMapView = "aubergine";
+                        break;
+                    case R.id.rbDark:
+                        mSelectMapView = "dark";
+                        break;
+                    case R.id.rbRetro:
+                        mSelectMapView = "retro";
+                        break;
+                    case R.id.rbNight:
+                        mSelectMapView = "night";
+                        break;
+                }
+            }
+        });
     }
 
     private void requestLocationUpdates() {
@@ -222,6 +259,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 intent.putExtra("startlong", mStartlongitude);
                 intent.putExtra("endlat", mEndlatitude);
                 intent.putExtra("endlong", mEndlongitude);
+                intent.putExtra("json", mSelectMapView);
                 startActivity(intent);
             }
         });

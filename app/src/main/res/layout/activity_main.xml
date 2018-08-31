@@ -33,12 +33,58 @@
         android:singleLine="true"
         android:text="" />
 
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/autoCompleteTextViewFrom"
+        android:text="Which is your most favorite google map view." />
+
+    <RadioGroup
+
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rbSilver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="silver" />
+
+        <RadioButton
+            android:id="@+id/rbRetro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retro" />
+
+        <RadioButton
+            android:id="@+id/rbDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark" />
+
+        <RadioButton
+            android:id="@+id/rbNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Night" />
+
+        <RadioButton
+            android:id="@+id/rbAubergine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aubergine" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/autoCompleteTextViewFrom"
+        android:layout_below="@id/radioGroup"
         android:layout_centerInParent="true"
         android:text="search" />
-
 </RelativeLayout>
